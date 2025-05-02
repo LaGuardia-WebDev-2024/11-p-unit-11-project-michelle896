@@ -1,17 +1,56 @@
-var snowX = [100, 120, 160, 200];
-var snowY = [50, 70, 40, 20];
+var niceImage=loadImage("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAH4AqAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQIDBgABB//EADMQAAIBAwMDAwMCBQQDAAAAAAECAwAEERIhMQVBURMiYTJxkRSBQlKhsdEGI3LBFZLw/8QAGgEAAwEBAQEAAAAAAAAAAAAAAgMEAQAFBv/EACMRAAMAAgIDAAMBAQEAAAAAAAABAgMRBCESEzEiMkFRYRT/2gAMAwEAAhEDEQA/APoVjKXZFkI1eP8AFNXIjGMHP8wxXtl0uK295YySdmPAr2f07ZtfpgE7fapOLirFj1T7LsmSar8TxJxICp4PbH+aDuVZSSN1Hg5phDcRT7Aq/n2napy2qyRn2YzzjbFUNbFKkmZ71i+d1XsM1bbzgPob6v70DeIBIUkdlKHPtP8A9tRvSrc3BMxGEGynIO/xXmYM+a87lrovuYUbTDoT5GaIYkrkppqsMIzgqc/8asaQunuFemSfTgK7Ga8r1WrDWyp4mk4FLbiEsSFByPAzToNjg1FCsQITvXeISyuTNwpcC5C2/wBbnFaK3sQEHrya376dhS3LwzPcRRHTk6j2o/p97JeFwECgd2Ocn9q6UFmqrXkvgU9pC6GPRyMc0jb/AE9cay36lfSO+NBzj/NaGOWIymFGDSAZb4q5yPIH3rLwxk/ZbJpzZIfQqa2ktLcJaqpAHDeaSQ9euJmkjnjVM7F1B2/rTy76ilvK8bKzYAOR5pZB06O5ZpZCQZCWKrtjfO9c510ijE58W8iO9NJV9RcE92ByT9zQdzcm0GCurPGKbJ0yFfpaQfY0H1bpxEGuLU7JwtBk8lDa+hRUOtN9C1Lss2D9xvzXUPEsXqIFXMijGRuRXV4Dzcrf9PR8cRuZb+FGVC3vPAxzSvqVw1zcW8C5CFtTMPFQeTKgHG3B8VWX2x4r6Ns8mIUvY1/8jBboIrWNmIHAGAKLt1mkGu6bfkIOBWehRZL6GaWQ6I+wO2fmmN11q3S4jtQ+XdsEDsPmiTF3j/khl1060uffPCrk+a9dRCo0AADx2r26vYoLRpiwChc796BsOpR3VqGchW4cZ713SfQMzbn/AIW3LhotWfd8Hmq4iZPah2+aWwnbBJPjPajbcgHOSPtQ7KXj8UFtA6+D9qpwV2bmiUm+R+ahPpkQkZ27itetCU3vTBy9ex5c78fFCNcIG06t/wC9FW7ZGBU+PkxdOUMcuey91Vx6ZTK5zil94/oyenAvpKwOrTtvTBSw3zvS66ikLmRznJyaoZmP72Rt5xbOz4JLc/NRPULhfU9N+fO+KqYNS/qF0tumeSewpdX4rbGzCqtBEkryszvku1F2c4jXDE/asuvUpdYLAY74p1YSxysXlYInal48038G5MTlGitXNwxCjYfUfFHx24CkYznuaU2vUrWJCA2AvAxzR56nbpZ/qXfCadR+KpTRBc3/ABFgsrcOZBCgkP8AGF3/ADXVeWUYOcg9+3xXV2pE+Vf6ZiYaO/3+KGecDsfv2pt1C3xCZNGMDIrOs8mrfR6ePP8A1Xn8vkvC0kj08ELImHoQ2SNwxyMVejpbRO7ELq+p8YzQljHM6nSUWPgEjfNXnpHrtqndnPbLcfbxVUU6lMxpJ6piq6vJLoorN/tLwKlbLxgYxRl70lLdA8UhIB3U9x8VG3iIrNPfZTNQ5/ALgFFrVEKEVdxRiK0HwRxuudLfmrpLRGiKAYz5NUWPujBjlXfsaO2TLM+ojtR62iC21XRk52WKUxyAB1O3n7046fayGPW/tzwp5H3pr6aMclRqxjVjeq5AGLAHD1Lh4cYbdoO+S7XiCSxshDA/f4pTNeaZzFJuQcbcUxluDreGVl25IoBAiyOypnfIaqWNxrS7O+rgH8Uo61akRpIqn2c4p9HmQZVNjxRcdmpQBxnPINBeL2TphTl9dbPm4jVHPuZskbY8eNq0NrZtFbxgjJ7itCOk2cMnqR26K2MZAqm7tzD70BK/FI4/E9KfY7LzFla0JJYnCkR8+G2xS2Z5ZAUd2AHCninkpXGVYDHI7f1pNJmRixGSaYx2B7T2TfqN89ukBuH9NMaQDgjHG43ryoaK6s8mP8Y/w+hNEsyFXGQRik8v+mw0moXTennONIz+adLIqrq5zUlcZxkc96deKL/ZbPCnJkj9QWKzhiQJGuAKjNZlVzG+/g75obqfWI7CVo2idjpypXjPg+KVJ/qG6eP01SNG/nyTW7ldDceHLa8kX3scrYOr2A5Cip2kSl8NnFD25d/rJ+1NLe1zHqEg/wAVn0ptuI0zySNYiCmSvfNUMcUVLEwQ6u9Kri5EbYxQ5LmFuhMJ30XLO0Dh4sZHmirS8M0mq5kAIIwOwpTBOJeSBjnJxUWIZtQBzjHNdN+STQdQt6Zp/wBfDG2mVwpxmhZ+o21zblkkKTLnSO9I3Pdt/k0rl6kqT6VAbHO9ZeaZX5AxxlT2h3q1/VuT370TCG0YTAGMYpXZ3K3HAKnwaYrLgYBrYpUto2k56DrZHXBd1wn8Kjeum6rDF1K2tSRmTJJ/lGNvzSe7ub3P+zFIVHJG+f2pSRI0nqnJkDaiT5rXk1/Bk8bzW6ZvWkRtWgq2B2PehbmZTaSSIB7ULAHuQOKysPU7qCRthhhuvb71UstzJ6uZXAlJLgcGu9gM8Kk97CrnqFneWbgIfUcbKV3zQSRmro7JgwOeDmihDjtS9Nla8Y+MCMZr2jDFXV3ib5hU93K6qisVVSDledqGv+o3UbI8UuhlBBXHOe9Nl6eujBJz5pJ1Kwe1l1NJ6sb7au6/GKN70S4fXVaYHJNPdNrnbW3nFE20O+cV0MHxTCCPSuTQJb7ZVdpLSLYlxzR9vDKX1QuFi/mBzn9qHWFnVmXhefmpWpu5kKpciGMHC4jDE+aciDK9roZtCdGHbfyRisz1OB1mZSG2+nbGqtFbXNtNI0NvKZ5FGS2chfuaIuDFDE0s+NKAszHsKVyOPOefFsTizVir4ZnptjIUd2iBDbYwMj9qvlh0/UoT/kuKN64xtbNryOQh49OSvcEjbH70ND1W0vZI4P1IkMmyxiM6s0UY1jlSh3nd/noXXK5jwuW+BvWbMMjbIwjcclhsa+kfoogulUGKBuv9P21xJrOY27lCBmp+VxnmWkxvH5k432Z7pVs89wAGwRuxyM/inw6YxXUHI+CtH2vTbeCIxxqd99Wd8+c1CYzWuSYjMo/iXn8U3Bh9WNJicnI9lbkEeMWaL6ugZ21YO5pdJCH1sqhdXAp4XS5hKMGQuucMOKphtY0UpIAzE4zTWtm48nguxD+iBbJH7URFaacZ5NPVt4zH6ekav5q8ktk9EBBuO5rvWg//AE7+i0Rgdq8MdGSQlD5HxVZFa0FN7BGXHNdV0qaq6hC2Wy3YVclxjyNjS+R3uZAzbgUGheZsFCB8mmMSYGBWb8jlCgna2wdwuRg0aIVhwCoYHg15bRRsQxJBHir5ozp9pyvx2o0uhGS35AwbQMKTivVfAAwMA5qh2I5qAk/Hms2Zra2FW5S1UrCqrk5J8mlPX+qzXEQtdKojj3kE+4ePimCDXXXHTrORWeaIs5GAQSW/vWvbRuNxN+VdmYku7uW0jtJZiYEOVQ/0zVnRZmtL71hBJMQhGlBkjPeiLGJUvYxcKQRsQ643pwsMKSM8KKhYYOnYUpJt7LcuaJlxK6Y26ddrc2sdwQUEgyFbkD5osspwNgT5pCZNgM4AOcVMTOWDFskfT8U5UeZWLscCZBJ6ZYasZxncihjekTzRGGTSuMOBkHalt5FHMTPh/XWMqsiMQVGc7VZ00rLbqLiQmYc+7et2d60lstZFDF49u+3cVFnONjjfOas9AoNKFmUfO4qiX2jIyR9qFvXYX3ovjk+a9eb5oMSEcY+2alHiY7NgfIpcZYt6l/DahrthKyezkVTseDmr8xKMHFQfS2yLg/FMNl6ICF5FymK6ira3uFGNI/8AaurdGVlaf0RwxjOcUWgxUUXHFWcUJU3sMis3Hu1qD4zmrTC4O34BzVVolzKvtl0r8rmjvZGF1ze5uBtv+wo0iHJTT+iTqCmLbfJ42pdHL6gJAZW3xqH/AFWi6nYG7jUodDL5P96X23RpTIDcsoUYwqtkn9+1eZn4+es6qX0UY82P19/S23iITIG/yasf/bUSemxI7LmrZbbTkrnA+aFWco+khifGnivSXQpfl2QknLHLoD8Y3oZ5B22ok20sjHLAeCKHurKVELIwJHbmhbYxa3oFkuo0bSzqD4JomOdWUaSGz3HFZW7QAhmRmOQCQMmmHRy0UjR6zgrlQd9PxUOLmK8jjRVfH8Y8jRxSEZxjcYqcVosk7Su+x4XYUOgx3FSjeeWaOMlo1OfeDmrkSd/waiIA59RvgDehupKy2zMr5087cUUHii2bc/IziihGrjDAEHn5rajznROrc1tmOy3qZ9UkYzoAp1aROIFZs+7jG9Gf+KshJrEIBznnbP2q1gvC/io+JwvRVNv6OychZFpAamI/wg/vXjNHB74yAa8mmj1lJQCw7EUFMUdtKn21YzYnYcvVUHIYn4rq9tre2jAJUO2PqO+TXVoqlG/gIB4ryTbsa9D6eB+ajI57msKVW2UTXMyrpWVwvgHFNulrGsAmY+5xksfFI7jGnI5pfJLIFVNbFB/ATt+KHz19DrD7F0bqCRZVLp9A4PmoJdI0ssYYaozg5NJ7bq4i6Y0gjOpMqvjNK3l1BmbJLHJOeaN0tEa47bY+W+jZ3BPt1ED7eaAQr7i0jEavZjx5pbFLnPPt2NFgO6BI2C5OP2oFW/hR61IwS5wgyvHirEhknJLbIew2ro7ZVXZmX7UY7+mgwPqOBRiKen0Zu96BP65NqyhSf4tqJ6b0f9JHqkIMrjkD+lPwqqi4GxqIXUuAcb7ffmlTx8c35JdhPk258diloGj+pP61CV5PTwWZM8nO4pkdMjOpG6HBpLZXCTSXEDxLrjYjPY0zWgo7Xf8AA6KRElRNTEMQCxbP96b/AKiNFyWA377VlL6X9PC825CjVprPr1q5M/rNgrnOCd6XWaYaTDXGeXtH0r1gVz5xiqLp/TkDAZHfFIU6hMwSTAwM+3NWPfytqYYHxTPJNClx6TJdUljZo2RsyGhHkIXIoUSvcTF2PPA8VewylLb2XTChJBPSLsi8P6iYhFT2g+a6lFwuTmurlkBrjRb3s//Z");
+
+var flowerX = [100, 120, 160, 200];
+var flowerY = [50, 70, 40, 20];
+
 
 setup = function() {
    size(600, 450); 
    background(164, 212, 255);
+   
   
    textSize(40);
-   for(var i = 0; i < snowX.length; i++){
-     text("❆", snowX[i], snowY[i]);
+   for(var i = 0; i < flowerX.length; i++){
+     text("🌸", flowerX[i], flowerY[i]);
    }
    
    fill(255,255,255);
    rect(-10, 300, 610, 150);
+   var myVegetables=["cucumber", "avocado","broccoli","pepper"];
+fill (200,0,0);
+text(myVegetables[0],10,30);
+text(myVegetables[1],10,80);
+text(myVegetables[2],10,130);
+text(myVegetables[3],10,180);
+textSize(40);
+ 
+
+textSize(40);
+   for(var i = 0; i < flowerX.length; i++){
+     text("🌸", flowerX[i], flowerY[i]);
+   }
+
+//Example Function Call
+drawFish(200, 200, color(200,0,0));
+
+
+   
+};
+
+//Function Definition
+var drawFish = function(fishX, fishY, fishColor){
+  fill(fishColor);
+  strokeWeight(1);
+  stroke(0,0,0);
+  ellipse(fishX+20,fishY,13,25); //tail
+  ellipse(fishX,fishY,40,20); //body
+  fill(0,0,0);
+  ellipse(fishX-10,fishY-2, 3 ,5); //eye
+  fill(226, 90, 76 );
+  ellipse(fishX-12,fishY+4,10,3); //mouth
+};
+draw=function(){
+image (niceImage,200, 180 , 120 , 120);
 
 }
 
